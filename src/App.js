@@ -11,14 +11,14 @@ function App() {
   return (
     <>    
     <Banner/>
-    <Home/>
-    {/* <Routes>  
+    {/* IGNORAR - <Home/> */}
+    <Routes>  
       <Route path='/' element={<Home/>}/>
       <Route path='/Sobre' element={<Sobre/>}/>
       <Route path='/Planta' element={<Planta/>}/>
       <Route path='/IA' element={<Ia/>}/>
       <Route path='/Conta' element={<Conta/>}/>
-    </Routes>    */}
+    </Routes>
     </>
   );
 }
