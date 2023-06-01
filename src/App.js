@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Banner from './components/Banner'
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
@@ -12,6 +12,7 @@ function App() {
     <>    
     <Banner/>
     {/* IGNORAR - <Home/> */}
+    <Router>
     <Routes>  
       <Route path='/' element={<Home/>}/>
       <Route path='/Sobre' element={<Sobre/>}/>
@@ -19,6 +20,7 @@ function App() {
       <Route path='/IA' element={<Ia/>}/>
       <Route path='/Conta' element={<Conta/>}/>
     </Routes>
+    </Router>
     </>
   );
 }
