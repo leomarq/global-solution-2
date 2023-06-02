@@ -10,9 +10,8 @@ import Conta from './pages/Conta';
 function App() {
   return (
     <>    
-    <Banner/>
-    {/* IGNORAR - <Home/> */}
     <Router>
+    <Banner/>
     <Routes>  
       <Route path='/' element={<Home/>}/>
       <Route path='/Sobre' element={<Sobre/>}/>
