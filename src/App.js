@@ -8,6 +8,8 @@ import Ia from './pages/IA';
 import Conta from './pages/Conta';
 import Contato from './pages/Contato';
 import Info from './pages/Info';
+import Cadastro from './pages/Cadastro';
+import Senha from './pages/Senha';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
       <Route path='/Conta' element={<Conta/>}/>
       <Route path='/Contato' element={<Contato/>}/>
       <Route path='/Info' element={<Info/>}/>
+      <Route path='/Cadastro' element={<Cadastro/>}/>
+      <Route path='/Senha' element={<Senha/>}/>
     </Routes>
     </Router>
     </>

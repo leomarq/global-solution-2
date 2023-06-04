@@ -1,5 +1,5 @@
-button {
-    margin: 15px;
+.button-conta {
+    margin: 5px 15px;
     padding: 3px 6px;
     border-radius: 5px;
 }
@@ -10,11 +10,7 @@ button:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-    color: #487f20;
-}
-
-.conteudo {
+.conteudo-senha {
     background-color:white;
     width: fit-content;
     margin: 10px auto;
@@ -22,3 +18,13 @@ h1 {
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+
+.input-senha {
+    width: 90%;
+    height: max;
+    padding: 6px;
+    margin-top: 5px;
+    border: gray solid 1px;
+    border-radius: 25px;
+    font-family: "Montserrat", sans-serif;
+  }

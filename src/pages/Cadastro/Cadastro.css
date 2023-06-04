@@ -1,20 +1,15 @@
-button {
-    margin: 15px;
-    padding: 3px 6px;
-    border-radius: 5px;
-}
-
 button:hover {
     background-color: honeydew;
     transition: 0.3s;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
+h2 {
     color: #487f20;
+    margin: 15px 20px;
 }
 
-.conteudo {
+.conteudo-cadastro {
     background-color:white;
     width: fit-content;
     margin: 10px auto;
@@ -22,3 +17,17 @@ h1 {
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+
+.input-cadastro {
+    width: 90%;
+    height: max;
+    padding: 6px;
+    margin-top: 5px;
+    border: gray solid 1px;
+    border-radius: 25px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  label {
+    margin-top: 10px;
+  }
