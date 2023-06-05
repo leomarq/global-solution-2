@@ -1,32 +1,44 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function ChatGPT() {
 
-    const [prompt, setPrompt] = useState("");
-    const [response, setResponse] = useState("");
-    const HTTP="http://localhost:8020/chat";
+  const [prompt, setPrompt] = useState("");
+  const [response, setResponse] = useState("");
+  const HTTP = "http://localhost:8080/chat";
 
-    const handleSubmit =(e)=>{
-      e.preventDefault();
-      axios
-      .post(`${HTTP}`, {prompt}).then((res) => setResponse(res.data)).catch(error => {console.log(error)});
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    const handlePrompt =(e)=>setPrompt(e.target.value);
+    axios
+      .post(`${HTTP}`, { prompt })
+      .then((res) => {
+        setResponse(res.data);
+        console.log(prompt);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setPrompt("");
+  };
+
+    const handlePrompt = (e) => {
+    setPrompt(e.target.value);
+  };
 
   return (
     <div className='conteudo'>
-      <h1>chatGPT</h1>
+      <h1>IA</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="">Ask</label>
-          <input type="text" value={prompt} onBlur={handlePrompt}/>
+          <label>Pergunta: </label>
+          <input type="text" placeholder="Digite sua pergunta..." value={prompt} onChange={handlePrompt}/>
         </div>
       </form>
       <div>
-        <p>{response ? response : "Pergunte-me qualquer coisa."}</p>
+        <p>{response ? response : "..."}</p>
       </div>
     </div>
-  )
+  );
 }
