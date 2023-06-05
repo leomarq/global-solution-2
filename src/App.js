@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Banner from './components/Banner'
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
-import Planta from './pages/Planta';
+import Plantacao from './pages/Plantacao';
 import Ia from './pages/IA';
 import Conta from './pages/Conta';
 import Contato from './pages/Contato';
@@ -19,7 +19,7 @@ function App() {
     <Routes>  
       <Route path='/' element={<Home/>}/>
       <Route path='/Sobre' element={<Sobre/>}/>
-      <Route path='/Planta' element={<Planta/>}/>
+      <Route path='/Plantacao' element={<Plantacao/>}/>
       <Route path='/IA' element={<Ia/>}/>
       <Route path='/Conta' element={<Conta/>}/>
       <Route path='/Contato' element={<Contato/>}/>
