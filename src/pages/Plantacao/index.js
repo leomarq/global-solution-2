@@ -5,7 +5,7 @@ function Plantacao() {
 
     const [plantacao, setPlantacao] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:8080/Empresas/rest/plantacao").then((resp) => {
+        fetch("http://localhost:8080/Empresas/rest/relatorio").then((resp) => {
             return resp.json();
         }).then((resp) => {
             setPlantacao(resp)
@@ -27,36 +27,31 @@ function Plantacao() {
 
     return (
         <div className='conteudo'>
-            <div className="conteudo">
-            <div className="conteudo-simulador">
-
-                {/* <h2>Empresas e Valores das Ações</h2> */}
-                    <table className='tabela-simulador'>
-                        <thead>
-                            <tr>
-                                <th>Usuario</th>
-                                <th>Vegetal</th>
-                                <th>Horta</th>
-                                <th>Fileira</th>
-                                <th>Posição</th>
-                                <th>Quantidade</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {plantacao.map((horta) => (
-                                <tr key={horta.codPlantacao}>
-                                    <td>{horta.codUsuario}</td>
-                                    <td>{horta.codAlimento}</td>
-                                    <td>{horta.codHorta}</td>
-                                    <td>{horta.fileira}</td>
-                                    <td>{horta.posicao}</td>
-                                    <td>{horta.qntdPlantada}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-            </div>
-        </div>
+            <h2>Suas Plantações</h2>
+            <table className='tabela-horta'>
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Horta</th>
+                        <th>Vegetal</th>
+                        <th>Fileira</th>
+                        <th>Posição</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {plantacao.map((horta) => (
+                        <tr key={horta.codPlantacao}>
+                            <td>{horta.nome}</td>
+                            <td>{horta.nomeHorta}</td>
+                            <td>{horta.nomeAlimento}</td>
+                            <td>{horta.fileira}</td>
+                            <td>{horta.posicao}</td>
+                            <td>{horta.qntdPlantada}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 }

@@ -27,7 +27,7 @@ const Info = () => {
       ) : (
         <ul>
           {noticia.map((item) => (
-            <li key={item.id}>
+            <li key={item.q}>
               <h2>{item.title}</h2>
               <p>{item.description}</p>
               <p>Published on: {item.date}</p>

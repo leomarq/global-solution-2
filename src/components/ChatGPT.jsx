@@ -5,23 +5,14 @@ export default function ChatGPT() {
 
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const HTTP = "http://localhost:8080/chat";
+
+  const HTTP = "http://localhost:8020/chat";
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post(`${HTTP}`, { prompt })
-      .then((res) => {
-        setResponse(res.data);
-        console.log(prompt);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    setPrompt("");
-  };
+    axios.post(`${HTTP}`, { prompt }).then((res) => setResponse(res.data)).catch((error) => {console.log(error);});
+    };
 
     const handlePrompt = (e) => {
     setPrompt(e.target.value);
