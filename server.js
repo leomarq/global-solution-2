@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const { Configuration, OpenAIApi } = require("openai");
 
 const config = new Configuration({
-    apiKey: "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",
+    apiKey: "",
 })
 
 const openai = new OpenAIApi(config);
@@ -18,7 +18,7 @@ app.post("/chat", async (req,res)=>{
     const { prompt } = req.body;
   
     const completion = await openai.createCompletion({
-      model: "gpt-4",
+      model: "text-davinci-003",
       max_tokens: 512,
       temperature: 0,
       prompt: prompt,

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+// Professor, veja a imagem erro.gpt em /public/images. Como vc pode ver, o código está funcionando normalmente, porém não conseguimos fazer essa parte de integração IA pois meu plano grátis pra utilização da API do ChatGPT expirou e eu teria que pagar (em dólar) pra ter essa funcionalidade no site
+
 export default function ChatGPT() {
 
   const [prompt, setPrompt] = useState("");
@@ -20,15 +22,14 @@ export default function ChatGPT() {
 
   return (
     <div className='conteudo'>
-      <h1>IA</h1>
+      <h2>Tire suas dúvidas!</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Pergunta: </label>
-          <input type="text" placeholder="Digite sua pergunta..." value={prompt} onChange={handlePrompt}/>
+          <input type="text" className="input-ia" placeholder="Digite sua pergunta..." value={prompt} onChange={handlePrompt}/>
         </div>
       </form>
       <div>
-        <p>{response ? response : "..."}</p>
+        <p>{response ? response : "."}</p>
       </div>
     </div>
   );
