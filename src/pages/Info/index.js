@@ -7,10 +7,11 @@ const Info = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
+        axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+        const response = await axios.get(          
           "https://apinoticias.tedk.com.br/api/?q=agricultura&date=02/06/2023"
         );
-        setNoticia(response.data);
+        setNoticia(response.list);
       } catch (error) {
         console.log(error);
       }
