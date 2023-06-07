@@ -1,41 +1,54 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import './Info.css';
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-const Info = () => {
-  const [noticia, setNoticia] = useState([]);
+function Info (){
+
+  const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  async function getNewsData() {
+    setLoading(true);
+    const resp = await axios.get('https://newsapi.org/v2/everything?q=agriculture&apiKey=0041028eb37541c5a3378959176063f0');
+    setNewsData(resp.data.articles);
+    setLoading(false);
+  }
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-        const response = await axios.get(          
-          "https://apinoticias.tedk.com.br/api/?q=agricultura&date=02/06/2023"
-        );
-        setNoticia(response.list);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
+    getNewsData();
   }, []);
-
+  
   return (
-    <div>
-      <h1>Notícias</h1>
-      {noticia.length === 0 ? (
-        <p>Carregando...</p>
-      ) : (
-        <ul>
-          {noticia.map((item) => (
-            <li key={item.q}>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              <p>Published on: {item.date}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="conteudo-info">
+      <header className="App-header">
+        {loading ? "Carregando..." : <Container>
+
+          {newsData.map((newsData, index) =>
+            <Row className="d-flex justify-content-center">
+              <Col xs={12} className="mt-5 w-500" key={index}>
+                <a target="_blank" href={newsData.url} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Card >
+                    <Card.Title className="my-3">  {newsData.title}</Card.Title>
+                    <Card.Img className='card-img' src={newsData.urlToImage} />
+                    <Card.Body>
+
+                      {/* <Card.Text>
+                        {newsData.description}
+                      </Card.Text> */}
+                    </Card.Body>
+                  </Card>
+                </a>
+              </Col>
+            </Row>
+          )}
+
+        </Container>
+        }
+      </header>
     </div>
   );
 };
